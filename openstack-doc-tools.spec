@@ -4,7 +4,7 @@
 #
 Name     : openstack-doc-tools
 Version  : 0.21.1
-Release  : 3
+Release  : 4
 URL      : https://pypi.python.org/packages/source/o/openstack-doc-tools/openstack-doc-tools-0.21.1.tar.gz
 Source0  : https://pypi.python.org/packages/source/o/openstack-doc-tools/openstack-doc-tools-0.21.1.tar.gz
 Summary  : Tools for OpenStack Documentation
