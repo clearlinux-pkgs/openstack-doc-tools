@@ -1,2 +1,30 @@
-# This file contains additional build requirements that did not get
-# picked up automatically. One name per line, no whitespace.
+astroid-python
+Babel-python
+bashate-python
+demjson-python
+doc8-python
+docutils-python
+flake8-python
+hacking-python
+iso8601-python
+Jinja2-python
+logilab-common-python
+lxml-python
+markupsafe-python
+mccabe-python
+netaddr-python
+oslo.config-python
+pbr
+pep8-python
+pip
+pyflakes-python
+Pygments-python
+pylint-python
+python-dev
+pytz-python
+restructuredtext_lint-python
+setuptools
+six
+six-python
+Sphinx-python
+stevedore-python
