@@ -1,4 +1,4 @@
 PKG_NAME := openstack-doc-tools
-URL := https://pypi.python.org/packages/source/o/openstack-doc-tools/openstack-doc-tools-0.26.0.tar.gz
+URL := http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.27.0.tar.gz
 
 include ../common/Makefile.common
