@@ -4,7 +4,7 @@
 #
 Name     : openstack-doc-tools
 Version  : 0.28.0
-Release  : 10
+Release  : 11
 URL      : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.28.0.tar.gz
 Source0  : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.28.0.tar.gz
 Summary  : Tools for OpenStack Documentation
@@ -19,6 +19,7 @@ BuildRequires : Pygments-python
 BuildRequires : Sphinx-python
 BuildRequires : astroid-python
 BuildRequires : bashate-python
+BuildRequires : chardet-python
 BuildRequires : demjson-python
 BuildRequires : doc8-python
 BuildRequires : docutils-python
@@ -30,12 +31,16 @@ BuildRequires : lxml-python
 BuildRequires : markupsafe-python
 BuildRequires : mccabe-python
 BuildRequires : netaddr-python
+BuildRequires : oslo.config
 BuildRequires : oslo.config-python
 BuildRequires : pbr
 BuildRequires : pep8-python
 BuildRequires : pip
+BuildRequires : pluggy
+BuildRequires : py-python
 BuildRequires : pyflakes-python
 BuildRequires : pylint-python
+BuildRequires : pytest
 BuildRequires : python-dev
 BuildRequires : pytz-python
 BuildRequires : restructuredtext_lint-python
@@ -43,6 +48,9 @@ BuildRequires : setuptools
 BuildRequires : six
 BuildRequires : six-python
 BuildRequires : stevedore-python
+BuildRequires : tox
+BuildRequires : virtualenv
+Patch1: test.patch
 
 %description
 OpenStack Doc Tools
@@ -77,10 +85,16 @@ python components for the openstack-doc-tools package.
 
 %prep
 %setup -q -n openstack-doc-tools-0.28.0
+%patch1 -p1
 
 %build
 python2 setup.py build -b py2
 
+%check
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=intel.com,localhost
+python2 setup.py test
 %install
 rm -rf %{buildroot}
 python2 setup.py build -b py2 install --root=%{buildroot}

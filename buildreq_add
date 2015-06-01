@@ -28,3 +28,4 @@ six
 six-python
 Sphinx-python
 stevedore-python
+oslo.config
