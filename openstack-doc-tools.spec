@@ -4,7 +4,7 @@
 #
 Name     : openstack-doc-tools
 Version  : 0.29.1
-Release  : 14
+Release  : 15
 URL      : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.29.1.tar.gz
 Source0  : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.29.1.tar.gz
 Summary  : Tools for OpenStack Documentation
@@ -94,7 +94,7 @@ python2 setup.py build -b py2
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 setup.py test
 %install
 rm -rf %{buildroot}
@@ -118,35 +118,26 @@ python2 setup.py build -b py2 install --root=%{buildroot}
 %files data
 %defattr(-,root,root,-)
 /usr/share/openstack-doc-tools/cleanup/prettify.py
-/usr/share/openstack-doc-tools/cleanup/prettify.pyc
 /usr/share/openstack-doc-tools/cleanup/prettify.pyo
 /usr/share/openstack-doc-tools/cleanup/remove_trailing_whitespaces.sh
 /usr/share/openstack-doc-tools/cleanup/remove_unnecessary_spaces.py
-/usr/share/openstack-doc-tools/cleanup/remove_unnecessary_spaces.pyc
 /usr/share/openstack-doc-tools/cleanup/remove_unnecessary_spaces.pyo
 /usr/share/openstack-doc-tools/cleanup/retf/README.md
 /usr/share/openstack-doc-tools/cleanup/retf/disabled_rules.yaml
 /usr/share/openstack-doc-tools/cleanup/retf/retf.py
-/usr/share/openstack-doc-tools/cleanup/retf/retf.pyc
 /usr/share/openstack-doc-tools/cleanup/retf/retf.pyo
 /usr/share/openstack-doc-tools/sitemap/README.md
 /usr/share/openstack-doc-tools/sitemap/generator/__init__.py
-/usr/share/openstack-doc-tools/sitemap/generator/__init__.pyc
 /usr/share/openstack-doc-tools/sitemap/generator/__init__.pyo
 /usr/share/openstack-doc-tools/sitemap/generator/items.py
-/usr/share/openstack-doc-tools/sitemap/generator/items.pyc
 /usr/share/openstack-doc-tools/sitemap/generator/items.pyo
 /usr/share/openstack-doc-tools/sitemap/generator/pipelines.py
-/usr/share/openstack-doc-tools/sitemap/generator/pipelines.pyc
 /usr/share/openstack-doc-tools/sitemap/generator/pipelines.pyo
 /usr/share/openstack-doc-tools/sitemap/generator/settings.py
-/usr/share/openstack-doc-tools/sitemap/generator/settings.pyc
 /usr/share/openstack-doc-tools/sitemap/generator/settings.pyo
 /usr/share/openstack-doc-tools/sitemap/generator/spiders/__init__.py
-/usr/share/openstack-doc-tools/sitemap/generator/spiders/__init__.pyc
 /usr/share/openstack-doc-tools/sitemap/generator/spiders/__init__.pyo
 /usr/share/openstack-doc-tools/sitemap/generator/spiders/sitemap.py
-/usr/share/openstack-doc-tools/sitemap/generator/spiders/sitemap.pyc
 /usr/share/openstack-doc-tools/sitemap/generator/spiders/sitemap.pyo
 /usr/share/openstack-doc-tools/sitemap/scrapy.cfg
 /usr/share/openstack-doc-tools/sitemap/transform-sitemap.xslt
