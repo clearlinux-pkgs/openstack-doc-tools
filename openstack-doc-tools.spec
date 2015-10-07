@@ -4,7 +4,7 @@
 #
 Name     : openstack-doc-tools
 Version  : 0.30.1
-Release  : 20
+Release  : 21
 URL      : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.30.1.tar.gz
 Source0  : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.30.1.tar.gz
 Summary  : Tools for OpenStack Documentation
@@ -52,7 +52,7 @@ BuildRequires : six-python
 BuildRequires : stevedore-python
 BuildRequires : tox
 BuildRequires : virtualenv
-Patch1: test.patch
+Patch1: 0.31-prerelease.patch
 
 %description
 OpenStack Doc Tools
