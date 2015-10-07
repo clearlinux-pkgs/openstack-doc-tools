@@ -1,7 +1,7 @@
-diff --git a/RELEASE_NOTES.rst b/RELEASE_NOTES.rst
-index 3e0c139..d40110c 100644
---- a/RELEASE_NOTES.rst
-+++ b/RELEASE_NOTES.rst
+Index: openstack-doc-tools-0.30.1/RELEASE_NOTES.rst
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/RELEASE_NOTES.rst
++++ openstack-doc-tools-0.30.1/RELEASE_NOTES.rst
 @@ -1,6 +1,14 @@
  Release notes
  =============
@@ -17,10 +17,10 @@ index 3e0c139..d40110c 100644
  0.30.1
  ------
  
-diff --git a/autogenerate_config_docs/autohelp.py b/autogenerate_config_docs/autohelp.py
-index 317b9e6..1963b99 100755
---- a/autogenerate_config_docs/autohelp.py
-+++ b/autogenerate_config_docs/autohelp.py
+Index: openstack-doc-tools-0.30.1/autogenerate_config_docs/autohelp.py
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/autogenerate_config_docs/autohelp.py
++++ openstack-doc-tools-0.30.1/autogenerate_config_docs/autohelp.py
 @@ -43,17 +43,24 @@ EXTENSIONS = ['oslo.cache',
                'oslo.service']
  
@@ -53,11 +53,11 @@ index 317b9e6..1963b99 100755
  ]
  
  
-diff --git a/autogenerate_config_docs/diff_branches.py b/autogenerate_config_docs/diff_branches.py
-index b310688..cdd8ae3 100755
---- a/autogenerate_config_docs/diff_branches.py
-+++ b/autogenerate_config_docs/diff_branches.py
-@@ -257,7 +257,7 @@ def generate_docbook(project, new_branch, old_list, new_list):
+Index: openstack-doc-tools-0.30.1/autogenerate_config_docs/diff_branches.py
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/autogenerate_config_docs/diff_branches.py
++++ openstack-doc-tools-0.30.1/autogenerate_config_docs/diff_branches.py
+@@ -257,7 +257,7 @@ def generate_docbook(project, new_branch
                                   "lives in the openstack-doc-tools "
                                   "repository. "))
      title = etree.Element("title")
@@ -66,7 +66,7 @@ index b310688..cdd8ae3 100755
                    "in %(release)s for %(project)s" %
                    {'release': release,
                     'project': CODENAME_TITLE[project]})
-@@ -305,7 +305,7 @@ def generate_docbook(project, new_branch, old_list, new_list):
+@@ -305,7 +305,7 @@ def generate_docbook(project, new_branch
      # No new, updated and deprecated options
      if not new_opts and not changed_default and not deprecated_opts:
          para = etree.Element("para")
@@ -75,23 +75,24 @@ index b310688..cdd8ae3 100755
                       "in %(release)s for %(project)s." %
                       {'release': release,
                        'project': CODENAME_TITLE[project]})
-diff --git a/autogenerate_config_docs/hooks.py b/autogenerate_config_docs/hooks.py
-index 25ed27d..9b89430 100644
---- a/autogenerate_config_docs/hooks.py
-+++ b/autogenerate_config_docs/hooks.py
-@@ -18,10 +18,16 @@ call to _register_runtime_opts(). The HOOKS dict associate hook functions with
+Index: openstack-doc-tools-0.30.1/autogenerate_config_docs/hooks.py
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/autogenerate_config_docs/hooks.py
++++ openstack-doc-tools-0.30.1/autogenerate_config_docs/hooks.py
+@@ -18,10 +18,16 @@ call to _register_runtime_opts(). The HO
  a module path."""
  
  
 -def keystone_config():
 -    from keystone.common import config
+-
+-    config.configure()
 +def aodh_config():
 +    # Aodh uses a local conf object, therefore we need to use the same method
 +    # here to populate the global cfg.CONF object used by the script.
 +    import aodh.opts as opts
 +    from oslo_config import cfg
- 
--    config.configure()
++
 +    cfg.CONF = cfg.ConfigOpts()
 +    for group, options in opts.list_opts():
 +        cfg.CONF.register_opts(list(options),
@@ -122,10 +123,10 @@ index 25ed27d..9b89430 100644
 +         'keystone.common.config': keystone_config,
           'neutron': neutron_misc,
           'nova.spice': nova_spice}
-diff --git a/autogenerate_config_docs/requirements/neutron-kilo.txt b/autogenerate_config_docs/requirements/neutron-kilo.txt
-index 8cbe079..2cc4b70 100644
---- a/autogenerate_config_docs/requirements/neutron-kilo.txt
-+++ b/autogenerate_config_docs/requirements/neutron-kilo.txt
+Index: openstack-doc-tools-0.30.1/autogenerate_config_docs/requirements/neutron-kilo.txt
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/autogenerate_config_docs/requirements/neutron-kilo.txt
++++ openstack-doc-tools-0.30.1/autogenerate_config_docs/requirements/neutron-kilo.txt
 @@ -39,5 +39,5 @@ neutron_radware_lbaas_v2
  -e git+https://git.openstack.org/openstack/networking-plumgrid.git#egg=networking-plumgrid
  -e git+https://git.openstack.org/stackforge/networking-portforwarding.git#egg=networking-portforwarding
@@ -133,10 +134,10 @@ index 8cbe079..2cc4b70 100644
 --e git+https://git.openstack.org/stackforge/neutron-powervm.git#egg=neutron-powervm
 +-e git+https://git.openstack.org/openstack/networking-powervm.git#egg=networking-powervm
  -e git+https://git.openstack.org/openstack/vmware-nsx.git@stable/kilo#egg=vmware-nsx
-diff --git a/autogenerate_config_docs/requirements/neutron-master.txt b/autogenerate_config_docs/requirements/neutron-master.txt
-index 556a562..d9680eb 100644
---- a/autogenerate_config_docs/requirements/neutron-master.txt
-+++ b/autogenerate_config_docs/requirements/neutron-master.txt
+Index: openstack-doc-tools-0.30.1/autogenerate_config_docs/requirements/neutron-master.txt
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/autogenerate_config_docs/requirements/neutron-master.txt
++++ openstack-doc-tools-0.30.1/autogenerate_config_docs/requirements/neutron-master.txt
 @@ -28,7 +28,13 @@ neutron_radware_lbaas_v2
  -e git+https://git.openstack.org/stackforge/networking-hyperv.git#egg=networking-hyperv
  -e git+https://git.openstack.org/stackforge/networking-ibm.git#egg=networking-ibm
@@ -161,11 +162,10 @@ index 556a562..d9680eb 100644
  -e git+https://git.openstack.org/openstack/vmware-nsx.git#egg=vmware-nsx
 +-e git+https://git.openstack.org/stackforge/networking-zvm.git#egg=networking-zvm
 +-e git+https://git.openstack.org/stackforge/networking-6wind.git#egg=networking-6wind
-diff --git a/bin/doc-tools-build-rst b/bin/doc-tools-build-rst
-new file mode 100755
-index 0000000..488b123
+Index: openstack-doc-tools-0.30.1/bin/doc-tools-build-rst
+===================================================================
 --- /dev/null
-+++ b/bin/doc-tools-build-rst
++++ openstack-doc-tools-0.30.1/bin/doc-tools-build-rst
 @@ -0,0 +1,99 @@
 +#!/bin/bash -e
 +#
@@ -266,21 +266,21 @@ index 0000000..488b123
 +        rsync -a $BUILD_DIR/ publish-docs/$TARGET/
 +    fi
 +fi
-diff --git a/bin/doc-tools-update-cli-reference b/bin/doc-tools-update-cli-reference
-index dcad003..7b00fbf 100755
---- a/bin/doc-tools-update-cli-reference
-+++ b/bin/doc-tools-update-cli-reference
-@@ -70,4 +70,4 @@ git branch --list $branch && git branch -D $branch
+Index: openstack-doc-tools-0.30.1/bin/doc-tools-update-cli-reference
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/bin/doc-tools-update-cli-reference
++++ openstack-doc-tools-0.30.1/bin/doc-tools-update-cli-reference
+@@ -70,4 +70,4 @@ git branch --list $branch && git branch
  git checkout -b $branch
  mv ../output/ch_cli_${project}_commands.xml doc/cli-reference/generated
  version=$($project --version 2>&1)
 -git commit -a -m "Update CLI reference for python-${project}client $version"
 +git commit -a -m "Update CLI reference for python-${project}client ${version##* }"
-diff --git a/os_doc_tools/commands.py b/os_doc_tools/commands.py
-index 07be385..16acc52 100644
---- a/os_doc_tools/commands.py
-+++ b/os_doc_tools/commands.py
-@@ -497,20 +497,18 @@ def generate_subcommand(os_command, os_subcommand, os_file, extra_params,
+Index: openstack-doc-tools-0.30.1/os_doc_tools/commands.py
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/os_doc_tools/commands.py
++++ openstack-doc-tools-0.30.1/os_doc_tools/commands.py
+@@ -497,20 +497,18 @@ def generate_subcommand(os_command, os_s
      os_file.write("    </section>\n")
  
  
@@ -308,7 +308,7 @@ index 07be385..16acc52 100644
      blacklist = ['bash-completion', 'complete', 'help']
      if type(subcommands) is str:
          args = [os_command]
-@@ -531,16 +529,50 @@ def generate_subcommands(os_command, os_file, subcommands, extra_params,
+@@ -531,16 +529,50 @@ def generate_subcommands(os_command, os_
              args.append('bash-completion')
              subcommands = subprocess.check_output(
                  args,
@@ -360,7 +360,7 @@ index 07be385..16acc52 100644
  def generate_end(os_file):
      """Finish writing file.
  
-@@ -588,20 +620,31 @@ def document_single_project(os_command, output_dir):
+@@ -588,20 +620,31 @@ def document_single_project(os_command,
          out_file.write("""
      <section xml:id=\"cinder_cli_v1\">
         <title>Block Storage API v1 commands</title>\n""")
@@ -401,7 +401,7 @@ index 07be385..16acc52 100644
      if os_command == 'cinder':
          out_file.write("    </section>\n")
          out_file.write("""
-@@ -615,8 +658,38 @@ def document_single_project(os_command, output_dir):
+@@ -615,8 +658,38 @@ def document_single_project(os_command,
                         "export OS_VOLUME_API_VERSION=2</userinput></screen>\n"
                         "</para>\n")
  
@@ -442,7 +442,7 @@ index 07be385..16acc52 100644
          out_file.write("    </section>\n")
      if os_command == 'glance':
          out_file.write("""
-@@ -631,8 +704,9 @@ def document_single_project(os_command, output_dir):
+@@ -631,8 +704,9 @@ def document_single_project(os_command,
                         "export OS_IMAGE_API_VERSION=2</userinput></screen>\n"
                         "</para>\n")
  
@@ -454,10 +454,10 @@ index 07be385..16acc52 100644
          out_file.write("    </section>\n")
  
      generate_end(out_file)
-diff --git a/os_doc_tools/resources/clients.yaml b/os_doc_tools/resources/clients.yaml
-index 2476cff..4a574ff 100644
---- a/os_doc_tools/resources/clients.yaml
-+++ b/os_doc_tools/resources/clients.yaml
+Index: openstack-doc-tools-0.30.1/os_doc_tools/resources/clients.yaml
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/os_doc_tools/resources/clients.yaml
++++ openstack-doc-tools-0.30.1/os_doc_tools/resources/clients.yaml
 @@ -13,6 +13,8 @@ designate:
  glance:
      name: OpenStack Image service
@@ -485,10 +485,10 @@ index 2476cff..4a574ff 100644
        - datastore_version_update
        - db_downgrade
        - db_load_datastore_config_parameters
-diff --git a/requirements.txt b/requirements.txt
-index 1d0ed5e..dcd529a 100644
---- a/requirements.txt
-+++ b/requirements.txt
+Index: openstack-doc-tools-0.30.1/requirements.txt
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/requirements.txt
++++ openstack-doc-tools-0.30.1/requirements.txt
 @@ -2,12 +2,12 @@
  # of appearance. Changing the order has an impact on the overall integration
  # process, which may cause wedges in the gate later.
@@ -504,22 +504,22 @@ index 1d0ed5e..dcd529a 100644
  sphinx!=1.2.0,!=1.3b1,<1.3,>=1.1.2
  demjson # GNU LGPL 3.0
  PyYAML>=3.1.0
-diff --git a/setup.cfg b/setup.cfg
-index 4b8f181..d3f8df4 100644
---- a/setup.cfg
-+++ b/setup.cfg
+Index: openstack-doc-tools-0.30.1/setup.cfg
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/setup.cfg
++++ openstack-doc-tools-0.30.1/setup.cfg
 @@ -29,6 +29,7 @@ data_files =
- scripts =
-     bin/doc-tools-check-languages
-     bin/doc-tools-update-cli-reference
-+    bin/doc-tools-build-rst
+ scripts = 
+ 	bin/doc-tools-check-languages
+ 	bin/doc-tools-update-cli-reference
++	bin/doc-tools-build-rst	
  
  [global]
- setup-hooks =
-diff --git a/setup.py b/setup.py
-index d8080d0..782bb21 100644
---- a/setup.py
-+++ b/setup.py
+ setup-hooks = 
+Index: openstack-doc-tools-0.30.1/setup.py
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/setup.py
++++ openstack-doc-tools-0.30.1/setup.py
 @@ -25,5 +25,5 @@ except ImportError:
      pass
  
@@ -527,20 +527,20 @@ index d8080d0..782bb21 100644
 -    setup_requires=['pbr>=1.3'],
 +    setup_requires=['pbr>=1.8'],
      pbr=True)
-diff --git a/sitemap/README.rst b/sitemap/README.rst
-index 7c47db7..42f5386 100644
---- a/sitemap/README.rst
-+++ b/sitemap/README.rst
-@@ -33,4 +33,4 @@ To install the needed modules you can use pip or the package management system i
+Index: openstack-doc-tools-0.30.1/sitemap/README.rst
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/sitemap/README.rst
++++ openstack-doc-tools-0.30.1/sitemap/README.rst
+@@ -33,4 +33,4 @@ To install the needed modules you can us
  in your distribution. When using the package management system maybe the name of the
  packages differ. When using pip it's maybe necessary to install some development packages.
  
 -    $ pip install scrapy
 +    $ pip install -r requirements.txt
-diff --git a/sitemap/generator/pipelines.py b/sitemap/generator/pipelines.py
-index 7a8d446..f06d28a 100644
---- a/sitemap/generator/pipelines.py
-+++ b/sitemap/generator/pipelines.py
+Index: openstack-doc-tools-0.30.1/sitemap/generator/pipelines.py
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/sitemap/generator/pipelines.py
++++ openstack-doc-tools-0.30.1/sitemap/generator/pipelines.py
 @@ -14,10 +14,10 @@ import os
  
  import lxml
@@ -554,10 +554,10 @@ index 7a8d446..f06d28a 100644
      '''XmlItemExporer with adjusted attributes for the root element.'''
  
      def start_exporting(self):
-diff --git a/sitemap/generator/settings.py b/sitemap/generator/settings.py
-index a013c47..4bab668 100644
---- a/sitemap/generator/settings.py
-+++ b/sitemap/generator/settings.py
+Index: openstack-doc-tools-0.30.1/sitemap/generator/settings.py
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/sitemap/generator/settings.py
++++ openstack-doc-tools-0.30.1/sitemap/generator/settings.py
 @@ -27,6 +27,7 @@ ITEM_PIPELINES = {
  CONCURRENT_REQUESTS = 32
  CONCURRENT_REQUESTS_PER_DOMAIN = 32
@@ -566,10 +566,10 @@ index a013c47..4bab668 100644
  LOG_LEVEL = 'INFO'
  LOGGING_ENABLED = True
  RANDOMIZE_DOWNLOAD_DELAY = False
-diff --git a/sitemap/generator/spiders/sitemap.py b/sitemap/generator/spiders/sitemap.py
-index e81335b..5ea6371 100644
---- a/sitemap/generator/spiders/sitemap.py
-+++ b/sitemap/generator/spiders/sitemap.py
+Index: openstack-doc-tools-0.30.1/sitemap/generator/spiders/sitemap.py
+===================================================================
+--- openstack-doc-tools-0.30.1.orig/sitemap/generator/spiders/sitemap.py
++++ openstack-doc-tools-0.30.1/sitemap/generator/spiders/sitemap.py
 @@ -15,7 +15,7 @@ import time
  import urlparse
  
@@ -579,7 +579,7 @@ index e81335b..5ea6371 100644
  from scrapy import spiders
  
  
-@@ -24,7 +24,7 @@ class SitemapSpider(spiders.CrawlSpider):
+@@ -24,7 +24,7 @@ class SitemapSpider(spiders.CrawlSpider)
  
      rules = [
          spiders.Rule(
@@ -588,10 +588,9 @@ index e81335b..5ea6371 100644
                  allow=[
                      r'.*\.html',
                      r'.*\.pdf',
-diff --git a/sitemap/requirements.txt b/sitemap/requirements.txt
-new file mode 100644
-index 0000000..dc26478
+Index: openstack-doc-tools-0.30.1/sitemap/requirements.txt
+===================================================================
 --- /dev/null
-+++ b/sitemap/requirements.txt
++++ openstack-doc-tools-0.30.1/sitemap/requirements.txt
 @@ -0,0 +1 @@
 +scrapy>=1.0.0
