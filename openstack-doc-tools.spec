@@ -4,7 +4,7 @@
 #
 Name     : openstack-doc-tools
 Version  : 0.30.1
-Release  : 22
+Release  : 23
 URL      : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.30.1.tar.gz
 Source0  : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.30.1.tar.gz
 Summary  : Tools for OpenStack Documentation
@@ -80,6 +80,12 @@ data components for the openstack-doc-tools package.
 %package python
 Summary: python components for the openstack-doc-tools package.
 Group: Default
+Requires: Babel-python
+Requires: PyYAML-python
+Requires: demjson-python
+Requires: iso8601-python
+Requires: lxml-python
+Requires: oslo.config
 
 %description python
 python components for the openstack-doc-tools package.
@@ -97,17 +103,18 @@ python3 setup.py build -b py3
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-python2 setup.py test
+PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python2 setup.py test
 %install
 rm -rf %{buildroot}
-python2 setup.py build -b py2 install --root=%{buildroot}
-python3 setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot}
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 
 %files
 %defattr(-,root,root,-)
 
 %files bin
 %defattr(-,root,root,-)
+/usr/bin/doc-tools-build-rst
 /usr/bin/doc-tools-check-languages
 /usr/bin/doc-tools-update-cli-reference
 /usr/bin/openstack-auto-commands
@@ -150,6 +157,7 @@ python3 setup.py build -b py3 install --root=%{buildroot}
 /usr/share/openstack-doc-tools/sitemap/generator/spiders/sitemap.py
 /usr/share/openstack-doc-tools/sitemap/generator/spiders/sitemap.pyc
 /usr/share/openstack-doc-tools/sitemap/generator/spiders/sitemap.pyo
+/usr/share/openstack-doc-tools/sitemap/requirements.txt
 /usr/share/openstack-doc-tools/sitemap/scrapy.cfg
 /usr/share/openstack-doc-tools/sitemap/transform-sitemap.xslt
 
