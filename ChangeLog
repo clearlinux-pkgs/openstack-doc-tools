@@ -1,6 +1,71 @@
 CHANGES
 =======
 
+0.33.0
+------
+
+* Updated from global requirements
+* Add switcher for common directory
+* Remove tuskar handling
+* Fix two word spellings
+* Add Topic tag in cli-reference generated script
+* autohelp: fix poor behavior of _sanitize_default
+* autohelp: avoid duplicated overriden entries
+* [sitemap] do not add empty URLs to the list of start URLs
+* Rename pep8 to linters test
+* Remove unused requirements
+* Address pep8 warning at doc-tools-check-languages
+* Address pep8 warning at markdown-docbook.sh
+* Address pep8 warning at autohelp-wrapper
+* Updated from global requirements
+* Update CLI Reference generation tool for RST
+* [sitemap] set higher priority for files of the current release
+* Move the config items in the manuals repository
+* tox: remove the pypy env
+* autohelp: remove old files
+* `autohelp update` can create the flags file
+* Add Zaqar configuration options hook
+* Updated from global requirements
+* autohelp-wrapper: remove leftover "fi"
+* Skip non-existing test-requirements with pip install
+* Install optional cliff dependency
+* Update osc plugins
+* Add testrepository to test-requirements
+* py33 is no longer supported by Infra's CI
+* Put py34 first in the env order of tox
+* [autohelp] Update the component names
+* [autohelp] config-ref-rst moves to config-reference
+* [autohelp] display information on import error
+* autohelp: add keystone modules to ignore list
+* Update python-xxxclient for python-openstackclient
+* Mark Block Storage API v1 as deprecate
+* Set the bug project to i18n for the translated docs
+* Add additional openstack client plugins
+* [diff_branches] Handle empty values in RST tables
+* Updated from global requirements
+* [autohelp] Avoid long lines in templates
+* [diff_branches] Projects can be passed as arguments
+* Insert property keys section into glance chapter
+* [autohelp] allow overrides of sections
+* Simply rmdir usage with --ignore-fail-on-non-empty
+* [autohelp] Simple neutron handling
+* Update autohelp template for Config Reference
+* Update command line list on clients.yaml
+* Add -W to sphinx invocation for release-notes build
+* [autohelp] misc fixes
+* Improve index page layout
+* [autohelp] Add table label for RST reference
+* autohelp: avoid help strings on multiple lines
+* Add python-openstackclient required plugin package
+* Updated from global requirements
+* Fix for getting glance command list
+* Update README for autogenerate_config_docs
+* diff_branches: fix deprecated opts listing
+* diff_branches: master is Mitaka
+* autohelp: workaround for empty values in RST literals
+* Reno: Remove unreleased and merge with index
+* autohelp: add aodh to the projects list
+
 0.32.0
 ------
 
