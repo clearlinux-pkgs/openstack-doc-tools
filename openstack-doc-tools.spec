@@ -4,7 +4,7 @@
 #
 Name     : openstack-doc-tools
 Version  : 0.33.0
-Release  : 27
+Release  : 28
 URL      : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.33.0.tar.gz
 Source0  : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.33.0.tar.gz
 Summary  : Tools for OpenStack Documentation
@@ -21,10 +21,12 @@ BuildRequires : Sphinx-python
 BuildRequires : astroid-python
 BuildRequires : bashate-python
 BuildRequires : chardet-python
+BuildRequires : debtcollector-python
 BuildRequires : demjson-python
 BuildRequires : doc8-python
 BuildRequires : docutils-python
 BuildRequires : flake8-python
+BuildRequires : funcsigs-python
 BuildRequires : hacking-python
 BuildRequires : iso8601-python
 BuildRequires : logilab-common-python
