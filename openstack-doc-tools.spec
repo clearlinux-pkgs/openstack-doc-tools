@@ -4,7 +4,7 @@
 #
 Name     : openstack-doc-tools
 Version  : 0.33.0
-Release  : 28
+Release  : 29
 URL      : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.33.0.tar.gz
 Source0  : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-0.33.0.tar.gz
 Summary  : Tools for OpenStack Documentation
