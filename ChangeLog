@@ -1,6 +1,29 @@
 CHANGES
 =======
 
+0.34.0
+------
+
+* Do not publish translated Debian Guide
+* Make diff_branches.py work again
+* autohelp: add zaqar to the default projects
+* Fix a typo in autogenerate_config_docs/README.rst
+* Remove parallel building
+* Better identify deprecated configuration options
+* Provide a more human identifable option data type
+* Catch sqlalchemy.exc.InvalidRequestError exception
+* Updated prerequisite packages for ironic & swift
+* Remove parallel building
+* [nova-cli-ref] Adjust long line for check niceness
+* Note to add 'jinja2' and 'markupsafe' to requirements
+* Change help category markup
+* Updated from global requirements
+* Remove markdown script
+* [autohelp] Remove oslo.incubator installation
+* Change Git message got cli reference update
+* Use pep8 instead of linters
+* Add option pattern to cli ref tool
+
 0.33.0
 ------
 
