@@ -1,6 +1,95 @@
 CHANGES
 =======
 
+1.2.0
+-----
+
+* [config-ref] update service names for diff branches
+* Updated from global requirements
+* Updated from global requirements
+* Increase hacking version
+* Remove Babel requirement
+
+1.1.0
+-----
+
+* Add root-marker file to translated manuals
+* [cli-ref] remove deprecated Block Storage API v1
+* [cli-ref] unsupport the openstack command
+* [cli-ref] support Backup, Restore, and DR service
+
+1.0.1
+-----
+
+* Fix install-guide draft translated publishing
+* [cli-ref] support NFV Orchestration service
+
+1.0.0
+-----
+
+* [cli-reference] use Image API v2 as default
+* [cli-reference] add gnocchi subcommands
+* Updated from global requirements
+* doc-tools unit tests
+* [config-ref] support cfg.PortOpt type by the generation tool
+* [cli-ref] add rmdir to cleanup working directory
+* [config-ref] skip options marked as disable
+* [config-ref] add murano and senlin
+* [cli-ref] split glance_property_keys.rst into another file
+* [cli-ref] update warning message
+* Remove Icehouse and Juno content from sitemap
+* [cli-reference] add python-watcherclient
+* [cli-ref] Concatenate the command options with '-'
+* [www-index] skip unnecessary 'samples' directory
+* Updated from global requirements
+* [cli-ref] change service names to official names
+* Updated from global requirements
+* Updated from global requirements
+* [cli-ref] add work around for long command option
+* [cli-ref] Use Identity API v3 instead of v2
+* Updated from global requirements
+* Updating README with additional necessary packages
+* Changing 'raise e' to 'raise' to prevent exception masking
+* [cli-reference] remove oslo.log installation
+* [cli-reference] Remove Cue project
+* Allow for config option flags
+* Updated from global requirements
+* [config-ref] add README for diff_branches.py
+* [config-ref] remove unnecessary RST markup
+* Factor out Install Guide for Debian with debconf
+* Remove common directory switcher
+* Allow bulleted lists in config reference
+* [cli-ref] Use Image API v2 at first
+* Remove openstack-doc-test
+* Update Magnum service name and mission statement
+* Updated from global requirements
+* Updated from global requirements
+* Remove build_environment from .gitignore
+* Remove DocBook XML translation support
+* Remove glossary handling
+* Updated from global requirements
+* Add docs environment
+* Remove executable privilege of doc/source/conf.py
+* [cli-ref] add heat deprecation note
+* use environment variables for GITPROJ and GITBASE
+* Add cliff-tablib to requirements.txt
+* safe get deprecated_reason
+* [cli-ref] Remove keystone CLI support
+* [cli-ref] Added support for 'help' and 'version'
+* [cli-ref] Add support for multiple clients
+* [cli-ref] Fix non-deprecated cmds being skipped
+* [cli-ref] Fix wrong delim splitting subcommands
+* [cli-ref] Support DeprecationWarning for version number
+* Updated from global requirements
+* [cli-ref] Remove work around for checkniceness
+* Updated from global requirements
+* [README] Update the content for mitaka
+* [User Guides] Remove Admin User Guide from Tools build
+* [sitemap] mark liberty as an old release
+* [cli-ref] Add osprofiler installation for --profile option
+* [cli-ref] Change heading level for subcommands from 2 to 3
+* [cli-ref] Switch Block Storage API usage order
+
 0.34.0
 ------
 
@@ -14,6 +103,7 @@ CHANGES
 * Catch sqlalchemy.exc.InvalidRequestError exception
 * Updated prerequisite packages for ironic & swift
 * Remove parallel building
+* Keep py3.X compatibility for urllib
 * [nova-cli-ref] Adjust long line for check niceness
 * Note to add 'jinja2' and 'markupsafe' to requirements
 * Change help category markup
@@ -759,7 +849,7 @@ CHANGES
 * Move libvirt flags to libvirt group (cont.)
 * Renamed docker_registry_default_port flag
 * Handle audience profiling in test.py
-* Removed references to unused libvirt_ovs_bridge flag
+* Removed references to unused  libvirt_ovs_bridge flag
 * Ensure all "os" values are valid/recognized
 * test.py: Improve output
 * Detect conflicting profiling attributes
