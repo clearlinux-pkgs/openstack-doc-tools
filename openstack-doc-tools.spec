@@ -6,7 +6,7 @@
 #
 Name     : openstack-doc-tools
 Version  : 1.5.0
-Release  : 39
+Release  : 40
 URL      : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-1.5.0.tar.gz
 Source0  : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-1.5.0.tar.gz
 Source99 : http://tarballs.openstack.org/openstack-doc-tools/openstack-doc-tools-1.5.0.tar.gz.asc
